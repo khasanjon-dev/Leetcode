@@ -1,8 +1,8 @@
 def factorial(n: int):
-    if n == 0 or n == 1:
-        return 1
-    else:
-        return n * factorial(n - 1)
-
+    fact = n
+    while n > 1:
+        fact *= n - 1
+        n -= 1
+    return fact
 
 print(factorial(5))
