@@ -1,3 +1,4 @@
+x = input()
 my_dict = {
     '1': 'bir',
 
@@ -34,21 +35,43 @@ my_dict = {
 
     '90': 'to’qson',
 
-    '100': 'bir yuz',
+    '100': 'yuz',
 
-    '1000': 'bir ming',
+    '1000': 'ming',
 
 }
-# input 59
-# output 'besh yuz to'qson besh' # noqa
-x = input()
+
 result = ''
 if len(x) >= 4:
-    result += my_dict[x[0]] + ' ming ' + my_dict[x[1]] + ' yuz ' + my_dict[x[2]] + "o'n " + my_dict[x[3]]
+    if x[1] == '0' and x[2] == '0' and x[3] == '0':
+        result = my_dict[x] if x[0] == 1 else my_dict[x[0]] + ' ' + my_dict['1000']
+    elif x[1] == '0' and x[2] == '0':
+        result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[3]]
+    elif x[2] == '0' and x[3] == '0':
+        result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[1]] + ' ' + my_dict['100']
+    elif x[1] == '0' and x[3] == '0':
+        result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[2] + '0']
+    elif x[1] == '0':
+        result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[2] + '0'] + ' ' + my_dict[x[3]]
+    elif x[2] == '0':
+        result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[1]] + ' ' + my_dict['100'] + ' ' + my_dict[
+            x[3]]
+    elif x[3] == '0':
+        result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[1]] + ' ' + my_dict['100'] + ' ' + my_dict[
+            x[2] + '0']
+    else:
+        result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[1]] + ' ' + my_dict['100'] + ' ' + my_dict[
+            x[2] + '0'] + ' ' + my_dict[x[3]]
 elif len(x) >= 3:
-    result += my_dict[x[0]] + ' yuz ' + my_dict[x[1]] + "o'n " + my_dict[x[2]]
+    if x[1] == '0' and x[2] == '0':
+        result = my_dict[x] if x[0] == 1 else my_dict[x[0]] + my_dict['100']
+    elif x[-1] == '0':
+        result = my_dict[x[0]] + ' ' + my_dict['100'] + ' ' + my_dict[x[1] + '0']
+    else:
+        result = my_dict[x[0]] + ' ' + my_dict['100'] + ' ' + my_dict[x[2]] if x[1] == '0' else my_dict[x[
+            0]] + ' ' + my_dict['100'] + ' ' + my_dict[x[1] + '0'] + ' ' + my_dict[x[2]]
 elif len(x) >= 2:
-    result += my_dict[x[0] + '0'] + ' ' + my_dict[x[1]]
+    result = my_dict[x] if x[-1] == '0' else my_dict[x[0] + '0'] + ' ' + my_dict[x[1]]
 else:
     result = my_dict[x]
 print(result)
