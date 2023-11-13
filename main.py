@@ -1,4 +1,4 @@
-x = input()
+# x = input()
 my_dict = {
     '1': 'bir',
 
@@ -40,38 +40,38 @@ my_dict = {
     '1000': 'ming',
 
 }
-
-result = ''
-if len(x) >= 4:
-    if x[1] == '0' and x[2] == '0' and x[3] == '0':
-        result = my_dict[x] if x[0] == 1 else my_dict[x[0]] + ' ' + my_dict['1000']
-    elif x[1] == '0' and x[2] == '0':
-        result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[3]]
-    elif x[2] == '0' and x[3] == '0':
-        result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[1]] + ' ' + my_dict['100']
-    elif x[1] == '0' and x[3] == '0':
-        result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[2] + '0']
-    elif x[1] == '0':
-        result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[2] + '0'] + ' ' + my_dict[x[3]]
-    elif x[2] == '0':
-        result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[1]] + ' ' + my_dict['100'] + ' ' + my_dict[
-            x[3]]
-    elif x[3] == '0':
-        result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[1]] + ' ' + my_dict['100'] + ' ' + my_dict[
-            x[2] + '0']
-    else:
-        result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[1]] + ' ' + my_dict['100'] + ' ' + my_dict[
-            x[2] + '0'] + ' ' + my_dict[x[3]]
-elif len(x) >= 3:
-    if x[1] == '0' and x[2] == '0':
-        result = my_dict[x] if x[0] == 1 else my_dict[x[0]] + my_dict['100']
-    elif x[-1] == '0':
-        result = my_dict[x[0]] + ' ' + my_dict['100'] + ' ' + my_dict[x[1] + '0']
-    else:
-        result = my_dict[x[0]] + ' ' + my_dict['100'] + ' ' + my_dict[x[2]] if x[1] == '0' else my_dict[x[
-            0]] + ' ' + my_dict['100'] + ' ' + my_dict[x[1] + '0'] + ' ' + my_dict[x[2]]
-elif len(x) >= 2:
-    result = my_dict[x] if x[-1] == '0' else my_dict[x[0] + '0'] + ' ' + my_dict[x[1]]
-else:
-    result = my_dict[x]
-print(result)
+print(my_dict)
+# result = ''
+# if len(x) >= 4:
+#     if x[1] == '0' and x[2] == '0' and x[3] == '0':
+#         result = my_dict[x] if x[0] == 1 else my_dict[x[0]] + ' ' + my_dict['1000']
+#     elif x[1] == '0' and x[2] == '0':
+#         result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[3]]
+#     elif x[2] == '0' and x[3] == '0':
+#         result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[1]] + ' ' + my_dict['100']
+#     elif x[1] == '0' and x[3] == '0':
+#         result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[2] + '0']
+#     elif x[1] == '0':
+#         result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[2] + '0'] + ' ' + my_dict[x[3]]
+#     elif x[2] == '0':
+#         result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[1]] + ' ' + my_dict['100'] + ' ' + my_dict[
+#             x[3]]
+#     elif x[3] == '0':
+#         result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[1]] + ' ' + my_dict['100'] + ' ' + my_dict[
+#             x[2] + '0']
+#     else:
+#         result = my_dict[x[0]] + ' ' + my_dict['1000'] + ' ' + my_dict[x[1]] + ' ' + my_dict['100'] + ' ' + my_dict[
+#             x[2] + '0'] + ' ' + my_dict[x[3]]
+# elif len(x) >= 3:
+#     if x[1] == '0' and x[2] == '0':
+#         result = my_dict[x] if x[0] == 1 else my_dict[x[0]] + my_dict['100']
+#     elif x[-1] == '0':
+#         result = my_dict[x[0]] + ' ' + my_dict['100'] + ' ' + my_dict[x[1] + '0']
+#     else:
+#         result = my_dict[x[0]] + ' ' + my_dict['100'] + ' ' + my_dict[x[2]] if x[1] == '0' else my_dict[x[
+#             0]] + ' ' + my_dict['100'] + ' ' + my_dict[x[1] + '0'] + ' ' + my_dict[x[2]]
+# elif len(x) >= 2:
+#     result = my_dict[x] if x[-1] == '0' else my_dict[x[0] + '0'] + ' ' + my_dict[x[1]]
+# else:
+#     result = my_dict[x]
+# print(result)
