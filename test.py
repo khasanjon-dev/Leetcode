@@ -1,4 +1,3 @@
 
 print('hello')
-print('salom
-      ')
+print('salom')
