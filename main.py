@@ -1,10 +1,14 @@
-s = "codeleet"
-indices = [4, 5, 6, 7, 0, 2, 1, 3]
+def running_sum(nums: list[int]) -> list[int]:
+    # result = []
+    # for i in range(len(nums)):
+    #     result.append(sum(nums[:i + 1]))
+    return [sum(nums[:i + 1]) for i in range(len(nums))]
 
 
-def restore_string(s: str, indices: list[int]) -> str:
-    pass
+# Input:
+nums = [1, 2, 3, 4]
+# Output:
+# [1, 3, 6, 10] -> [1, 1+2, 1+2+3, 1+2+3+4]
 
 
-restore_string(s, indices)
-
+print(running_sum(nums))
