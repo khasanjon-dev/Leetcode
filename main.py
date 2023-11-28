@@ -1,14 +1,25 @@
-def running_sum(nums: list[int]) -> list[int]:
-    # result = []
-    # for i in range(len(nums)):
-    #     result.append(sum(nums[:i + 1]))
-    return [sum(nums[:i + 1]) for i in range(len(nums))]
+
+def number_of_ways(corridor: str) -> int:
+    strings = [corridor]
+    count = 0
+    left_index = 0
+    for i in range(len(corridor)):
+        if count == 2:
+            if corridor[i:].count('S') >= 2:
+                strings.append(corridor[i:])
+                count = 0
+            else:
+                strings.append(corridor[i:])
+        if corridor[i] == 'S':
+            count += 1
+    return strings
 
 
-# Input:
-nums = [1, 2, 3, 4]
-# Output:
-# [1, 3, 6, 10] -> [1, 1+2, 1+2+3, 1+2+3+4]
-
-
-print(running_sum(nums))
+print(number_of_ways('SPPSPSSPSSSPSPPSPPS'))
+'''
+SPPSPSSPSSSPSPPSPPS
+    PSSPSSSPSPPSPPS    
+       PSSSPSPPSPPS  
+          SPSPPSPPS
+             PPSPPS
+'''
