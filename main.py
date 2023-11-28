@@ -1,25 +1,22 @@
-
-def number_of_ways(corridor: str) -> int:
-    strings = [corridor]
-    count = 0
-    left_index = 0
-    for i in range(len(corridor)):
-        if count == 2:
-            if corridor[i:].count('S') >= 2:
-                strings.append(corridor[i:])
-                count = 0
-            else:
-                strings.append(corridor[i:])
-        if corridor[i] == 'S':
-            count += 1
-    return strings
+def int_to_roman(num: int) -> str:
+    num_s = str(num)
+    roman_numbers = {
+        1: 'I',
+        5: 'V',
+        10: 'X',
+        50: 'L',
+        100: 'C',
+        500: 'D',
+        1000: 'M'
+    }
+    pass
 
 
-print(number_of_ways('SPPSPSSPSSSPSPPSPPS'))
+print(int_to_roman(3))
 '''
-SPPSPSSPSSSPSPPSPPS
-    PSSPSSSPSPPSPPS    
-       PSSSPSPPSPPS  
-          SPSPPSPPS
-             PPSPPS
+125
+V
+XX
+C
+CXXV
 '''
