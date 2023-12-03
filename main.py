@@ -1,7 +1,7 @@
 from geopy.geocoders import Nominatim
 
-latitude = 41.283493
-longitude = 69.210893
+latitude = 41.283493  # 41.283469
+longitude = 69.210893  # 69.210808
 
 
 def get_address(latitude: float, longitude: float):
@@ -11,8 +11,10 @@ def get_address(latitude: float, longitude: float):
     house_number = address.get('house_number', None)
     road = address.get('road', None)
     region = address.get('county', None)
+    residential = address.get('residential', None)
     city = address['city']
-    return address
+    text = f"{city}, {residential}, {road}, {house_number}"
+    return text
 
 
 print(get_address(latitude, longitude))
