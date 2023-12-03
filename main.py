@@ -1,4 +1,3 @@
-# key = 'AIzaSyDYoE0DNpJGMlUakG6H3qpfS3ctoqpsxbQ'
 # latitude = 41.283767
 # longitude = 69.210916
 #
