@@ -1,10 +1,17 @@
-def num_identical_paris(nums: list[int]) -> int:
-    result = 0
-    for i in range(len(nums)):
-        for j in range(i + 1, len(nums)):
-            if nums[i] == nums[j]:
-                result += 1
+from itertools import combinations
+
+
+def sum_counts(nums: list[int]) -> int:
+    result = []
+    for i in range(1, len(nums) + 1):
+        tup = tuple(combinations(nums, i))
+        res = []
+        for t in tup:
+            res.extend(set(t))
+        result.append(res)
+
+
     return result
 
 
-print(num_identical_paris([1, 2 ,3]))
+print(sum_counts([1, 2, 1]))
