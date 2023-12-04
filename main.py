@@ -1,20 +1,10 @@
-from geopy.geocoders import Nominatim
-
-latitude = 41.283493  # 41.283469
-longitude = 69.210893  # 69.210808
-
-
-def get_address(latitude: float, longitude: float):
-    geolocator = Nominatim(user_agent="oqtepa")
-    location = geolocator.reverse(f"{latitude}, {longitude}")
-    address = location.raw['address']
-    house_number = address.get('house_number', None)
-    road = address.get('road', None)
-    region = address.get('county', None)
-    residential = address.get('residential', None)
-    city = address['city']
-    text = f"{city}, {residential}, {road}, {house_number}"
-    return text
+def num_identical_paris(nums: list[int]) -> int:
+    result = 0
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[i] == nums[j]:
+                result += 1
+    return result
 
 
-print(get_address(latitude, longitude))
+print(num_identical_paris([1, 2 ,3]))
