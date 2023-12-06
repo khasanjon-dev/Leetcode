@@ -1,9 +1,14 @@
-def maximum_number_of_string_pairs(words: list[str]) -> int:
-    result = 0
-    for i, word in enumerate(words):
-        if words[i + 1:].count(word[::-1]):
-            result += 1
-    return result
+def fun(word: str, ch: str):
+    i = 0
+    for w in word:
+        i += 1
+        if w == ch:
+            break
+    if i:
+        result = ''
+        result += word[:i][::-1]
+        return result + word[i:]
+    return word
 
 
-print(maximum_number_of_string_pairs(["cd", "ac", "dc", "ca", "zz"]))
+print(fun('abcdefd', 'd'))
