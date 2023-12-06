@@ -1,14 +1,9 @@
-from string import ascii_lowercase as lower_let
-
-
-def replace_digits(s: str) -> str:
-    result = ''
-    for i, w in enumerate(s):
-        if w.isdigit():
-            result += lower_let[lower_let.index(s[i - 1]) + int(w)]
-        else:
-            result += w
+def maximum_number_of_string_pairs(words: list[str]) -> int:
+    result = 0
+    for i, word in enumerate(words):
+        if words[i + 1:].count(word[::-1]):
+            result += 1
     return result
 
 
-print(replace_digits('a1b2c3d4e'))
+print(maximum_number_of_string_pairs(["cd", "ac", "dc", "ca", "zz"]))
