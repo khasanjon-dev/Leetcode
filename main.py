@@ -1,14 +1,19 @@
-def fun(word: str, ch: str):
-    i = 0
-    for w in word:
-        i += 1
-        if w == ch:
-            break
-    if i:
-        result = ''
-        result += word[:i][::-1]
-        return result + word[i:]
-    return word
+from string import ascii_lowercase as lower
 
 
-print(fun('abcdefd', 'd'))
+def fun(s: str):
+    result = []
+    for i, w in enumerate(s):
+        if w == '#':
+            result.pop()
+            result.pop()
+            result.append(lower[int(s[i - 2: i]) - 1])
+        else:
+            result.append(lower[int(s[i]) - 1])
+    res = ''
+    for w in result:
+        res += w
+    return res
+
+
+print(fun('10#11#12'))
