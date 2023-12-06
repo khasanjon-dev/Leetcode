@@ -1,21 +1,15 @@
-from itertools import combinations, chain
+def merger_the_tools(string: str, k: int):
+    for i in range(0, len(string), k):
+        s = string[i: i + k]
+        if len(set(s)) == len(s):
+            print(s)
+        else:
+            unique_s = ''
+            for j in s:
+                if j not in unique_s:
+                    unique_s += j
+            print(unique_s)
 
 
-def sum_counts(nums: list[int]) -> int:
-    res = []
-    for i in range(2, len(nums) + 1):
-        l = list(combinations(nums, i))
-        r = []
-        for t in l:
-            if len(set(t)) == 1:
-                pass
-            else:
-                r.extend(t)
-        res.append(r)
-    res.append(nums)
-    result = sum([num ** 2 for num in chain(*res)])
-
-    print(result)
-
-
-print(sum_counts([1, 2, 1]))
+string = 'AABCAAADA'
+merger_the_tools(string, 3)
