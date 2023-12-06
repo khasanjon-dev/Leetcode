@@ -1,8 +1,4 @@
-def is_acronym(words: list[str], s: str) -> bool:
-    res = ''
-    for word in words:
-        res += word[0]
-    return res == s
 
+def find_words_containing(words: list[str], x: str) -> list[int]:
+    return [i for i, word in enumerate(words) if x in word]
 
-print(is_acronym(['alice', 'bob', 'charlie'], 'abc'))
