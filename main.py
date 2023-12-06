@@ -1,4 +1,11 @@
+def final_string(s: str) -> str:
+    res = ''
+    for w in s:
+        if w == 'i':
+            res = res[::-1]
+        else:
+            res += w
+    return res
 
-def find_words_containing(words: list[str], x: str) -> list[int]:
-    return [i for i, word in enumerate(words) if x in word]
 
+print(final_string('string'))
