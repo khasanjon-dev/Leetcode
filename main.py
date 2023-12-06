@@ -1,11 +1,14 @@
-def final_string(s: str) -> str:
-    res = ''
-    for w in s:
-        if w == 'i':
-            res = res[::-1]
+from string import ascii_lowercase as lower_let
+
+
+def replace_digits(s: str) -> str:
+    result = ''
+    for i, w in enumerate(s):
+        if w.isdigit():
+            result += lower_let[lower_let.index(s[i - 1]) + int(w)]
         else:
-            res += w
-    return res
+            result += w
+    return result
 
 
-print(final_string('string'))
+print(replace_digits('a1b2c3d4e'))
