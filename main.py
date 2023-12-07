@@ -1,11 +1,13 @@
-def fun(num: str) -> str:
-    res = ''
-    for i in range(1, len(num) + 1):
-        if int(num[-i]) % 2:
-            if i == 1:
-                return num
-            return num[:-(i - 1)]
-    return res
+from collections import Counter
 
 
-print(fun('4206'))
+def fun(s: str) -> bool:
+    counter = Counter(s)
+    num = counter[s[0]]
+    for value in counter.values():
+        if not num == value:
+            return False
+    return True
+
+
+print(fun("abacbc"))
