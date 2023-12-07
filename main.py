@@ -1,17 +1,11 @@
-from itertools import combinations
+def fun(num: str) -> str:
+    res = ''
+    for i in range(1, len(num) + 1):
+        if int(num[-i]) % 2:
+            if i == 1:
+                return num
+            return num[:-(i - 1)]
+    return res
 
 
-def sum_counts(nums: list[int]) -> int:
-    result = []
-    for i in range(1, len(nums) + 1):
-        tup = tuple(combinations(nums, i))
-        res = []
-        for t in tup:
-            res.extend(set(t))
-        result.append(res)
-
-
-    return result
-
-
-print(sum_counts([1, 2, 1]))
+print(fun('4206'))
