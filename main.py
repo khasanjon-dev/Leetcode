@@ -1,4 +1,11 @@
 def fun(num: str) -> str:
-    return str(int(num[::-1]))[::-1]
+    res = ''
+    for i in range(1, len(num) + 1):
+        if int(num[-i]) % 2:
+            if i == 1:
+                return num
+            return num[:-(i - 1)]
+    return res
 
-print(fun('123'))
+
+print(fun('4206'))
