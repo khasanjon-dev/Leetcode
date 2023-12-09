@@ -1,13 +1,5 @@
-from collections import Counter
+def fun(moves: str) -> bool:
+    return moves.count('D') == moves.count('U') and moves.count('L') == moves.count('R')
 
 
-def fun(s: str) -> bool:
-    counter = Counter(s)
-    num = counter[s[0]]
-    for value in counter.values():
-        if not num == value:
-            return False
-    return True
-
-
-print(fun("abacbc"))
+print(fun("LDLLULUDLL"))
