@@ -1,9 +1,14 @@
-from string import ascii_lowercase as lower
-
-
-def fun(word: str) -> int:
+def fun(text: str, brokenLetters: str) -> int:
     result = 0
-    re_lower = lower[::-1]
-    for w in word:
-        left = lowe
-print(fun('abc'))
+    word_list = text.split()
+    for word in word_list:
+        for letter in brokenLetters:
+            if letter in word:
+                break
+        else:
+            result += 1
+
+    return result
+
+
+print(fun('leet code', 'e'))
