@@ -1,14 +1,13 @@
-def fun(text: str, first: str, second: str) -> list[str]:
-    result = []
-    text = text.split()
-    for i in range(len(text)):
-        if len(text) - 1 != i and len(text) - 2 != i:
-            if text[i] == first and text[i + 1] == second:
-                result.append(text[i + 2])
+def fun(text: str, brokenLetters: str) -> int:
+    result = 0
+    word_list = text.split()
+    for word in word_list:
+        for letter in brokenLetters:
+            if letter in word:
+                break
+        else:
+            result += 1
+
     return result
 
-
-print(
-    fun("ypkk lnlqhmaohv lnlqhmaohv lnlqhmaohv ypkk ypkk ypkk ypkk ypkk ypkk lnlqhmaohv lnlqhmaohv lnlqhmaohv lnlqhmaohv ypkk ypkk ypkk lnlqhmaohv lnlqhmaohv ypkk",
-        "lnlqhmaohv",
-        "ypkk"))
+print(fun('leet code', 'e'))
