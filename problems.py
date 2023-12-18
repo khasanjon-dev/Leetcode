@@ -10,4 +10,5 @@ def fun(text: str, brokenLetters: str) -> int:
 
     return result
 
+
 print(fun('leet code', 'e'))
