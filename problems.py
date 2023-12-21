@@ -1,9 +1,12 @@
-def buy_choco(prices: list[int], money: int) -> int:
-    sort_price = sorted(prices)
-    min_1, min_2 = sort_price[0], sort_price[1]
-    if min_1 + min_2 <= money:
-        return money - (min_2 + min_1)
-    return money
+def second_highest(s: str) -> int:
+    res = []
+    for w in s:
+        if w.isnumeric():
+            if (num := int(w)) not in res:
+                res.append(num)
+    if len(res) >= 2:
+        return sorted(set(res))[-2]
+    return -1
 
 
-print(buy_choco([3, 2, 3], 3))
+print(second_highest('dfa12321afd'))
