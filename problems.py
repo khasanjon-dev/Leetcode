@@ -1,11 +1,13 @@
-def count_pairs(nums: list[int], target: int) -> int:
-    result = 0
-    len_nums = len(nums)
-    for i in range(len_nums):
-        for j in range(i + 1, len_nums):
-            if nums[i] + nums[j] < target:
-                result += 1
-    return result
+from itertools import combinations
 
 
-print(count_pairs([-6, 2, 5, -2, -7, -1, 3], -2))
+def minimum_sum(num: int) -> int:
+    nums = [int(n) for n in str(num)]
+    nums.sort()
+    num1, num2 = nums[0], nums[1]
+    num3, num4 = nums[2], nums[3]
+    new_1 = int(str(min(num1, num2)) + str(max(num3, num4)))
+    new_2 = int(str(max(num1, num2)) + str(min(num3, num4)))
+    return new_1 + new_2
+
+print(minimum_sum(2932))
