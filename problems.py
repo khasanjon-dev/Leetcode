@@ -1,9 +1,18 @@
-def find_non_min_or_max(nums: list[int]) -> int:
-    nums = list(set(nums))
-    if len(nums) <= 2:
-        return -1
-    nums.sort()
-    return nums[1]
+def find_relative_ranks(score: list[int]) -> list[str]:
+    score_sort = sorted(score, reverse=True)
+    result = []
+    data = {
+        1: 'Gold Medal',
+        2: 'Silver Medal',
+        3: 'Bronze Medal'
+    }
+    for num in score:
+        index = score_sort.index(num)  + 1
+        if index in data.keys():
+            result.append(data[index])
+        else:
+            result.append(str(index))
+    return result
 
 
-print(find_non_min_or_max([3, 2, 1, 4]))
+find_relative_ranks([10, 3, 8, 9, 4])
