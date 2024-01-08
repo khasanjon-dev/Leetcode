@@ -1,54 +1,51 @@
 # 1
-'''
-result = P * N
-'''
-
+# def reverse(s: str) -> str:
+#     return s[::-1]
+#
+#
+# print(reverse('HELLO, WORLD!'))
 
 # 2
-# a, b = map(int, input().split())
-# result = 0
-# if len(str(a)) == 1:
-#     if b > 10:
-#         for num in range(10, b + 1):
-#             if str(num)[0] == str(num)[-1]:
-#                 result += 1
-#         result += 10 - a
-#     else:
-#         result += b + 1 - a
-# else:
-#     for num in range(a, b + 1):
-#         if str(num)[0] == str(num)[-1]:
-#             result += 1
-# print(result)
-
-
-# 3
-# def min_and_max(numbers: list[int]) -> list[int]:
-#     result = []
-#     numbers.sort()
-#     result.append(sum(numbers[:4]))
-#     result.append(sum(numbers[1:]))
+# def count_num(numbers: list[int]) -> dict:
+#     result = {}
+#
+#     number_s = sorted(list(set(numbers)))
+#     for num in number_s:
+#         res = 0
+#         for n in numbers:
+#             if num == n:
+#                 res += 1
+#         result[num] = res
 #     return result
 #
 #
-# print(min_and_max([1, 2, 3, 4, 5]))
-
-# 4
-# def python_dict():
-#     my_dict = {
-#         'integer': 'butun',
-#         'if': 'agar',
-#         'save': 'saqlash'
-#     }
-#     key = input("KALIT SO'Z KIRITING: ")
-#     if res := my_dict.get(key, None):
-#         print(res)
-#     else:
-#         print("Bunday so'z mavjud emas")
+# print(count_num([1, 2, 3, 2, 1, 3, 2, 4, 5, 4]))
+# 3
+# def find_second_max(numbers: list[int]) -> int:
+#     return sorted(numbers)[-2]
 #
-# python_dict()
+#
+# print(find_second_max([10, 5, 8, 20, 3]))
+# 4
+# def remove_duplicate(numbers: list[int]) -> list[int]:
+#     result = []
+#     for num in numbers:
+#         if num not in result:
+#             result.append(num)
+#     return result
+#
+#
+# print(remove_duplicate([1, 2, 3, 2, 1, 3, 2, 4, 5, 4]))
 
 # 5
-# x1, y1, x2, y2 = map(int, input().split())
-# result = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
-# print(result)
+# def small_positive_number(A):
+#     max_num = max(A)
+#     if max_num > 0:
+#         for num in range(1, max_num + 2):
+#             if num not in A:
+#                 return num
+#     else:
+#         return 1
+#
+#
+# print(small_positive_number([-1, -3]))
