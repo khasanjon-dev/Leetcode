@@ -1,27 +1,15 @@
-def make_smallest_palindrome(s: str) -> str:
-    result = ''
-    l = len(s)
-    a = s[: l // 2]
-    c = None
-    if l % 2:
-        b = s[l // 2 + 1:]
-        c = s[l // 2]
-    else:
-        b = s[l // 2:]
-    res = ''
-    for i in range(1, len(a) + 1):
-        if a[i - 1] != b[-i]:
-            if a[i - 1] > b[-i]:
-                res += b[-i]
-            else:
-                res += a[i - 1]
-        else:
-            res += a[i - 1]
-    if c:
-        result += res + c + res[::-1]
-    else:
-        result += res + res[::-1]
+def arithmetic_triplets(nums: list[int], diff: int) -> int:
+    l = len(nums)
+    result = 0
+    for i in range(l):
+        num = nums[i]
+        for j in range(i + 1, l):
+            if diff == nums[j] - num:
+                for k in range(j + 1, l):
+                    if diff == nums[k] - nums[j]:
+                        result += 1
+                        break
     return result
 
 
-print(make_smallest_palindrome('egcfe'))
+print(arithmetic_triplets([4, 5, 6, 7, 8, 9], 2))
