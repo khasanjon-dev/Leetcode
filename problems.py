@@ -1,5 +1,13 @@
-def count_bits(n: int) -> list[int]:
-    return [bin(num)[2:].count('1') for num in range(n + 1)]
+def delete_greatest_value(grid: list[list[int]]) -> int:
+    n = len(grid[0])
+    result = 0
+    for i in range(n):
+        max_ = 0
+        for row in grid:
+            i = row.index(max(row))
+            max_ = max(max_, row.pop(i))
+        result += max_
+    return result
 
 
-print(count_bits(5))
+print(delete_greatest_value([[1, 2, 4], [3, 3, 1]]))
