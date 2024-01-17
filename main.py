@@ -1,43 +1,64 @@
-import os
-
-import sib_api_v3_sdk
-from dotenv import load_dotenv
-from sib_api_v3_sdk.rest import ApiException
-
-load_dotenv()
-BREVO_API_KEY = os.getenv('BREVO_API_KEY')
-configuration = sib_api_v3_sdk.Configuration()
-configuration.api_key['api-key'] = BREVO_API_KEY
-api_instance = sib_api_v3_sdk.TransactionalEmailsApi(sib_api_v3_sdk.ApiClient(configuration))
+import httpx
 
 
-def send_email(subject, html, to_address=None, receiver_username=None):
-    subject = subject
-    sender = {"name": "DevMasters", "email": "khasanjon.eng@gmail.com"}
-    html_content = html
-
-    if to_address:
-        to = [{"email": to_address, "name": receiver_username}]
-    else:
-        to = [{"email": "sangeeth123sj@gmail.com", "name": "Sangeeth Joseph"}]
-    send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(to=to, html_content=html_content, sender=sender, subject=subject)
-    try:
-        api_response = api_instance.send_transac_email(send_smtp_email)
-        print(api_response)
-        return {"message": "Email sent successfully!"}
-    except ApiException as e:
-        print("Exception when calling SMTPApi->send_transac_email: %s\n" % e)
+def keys_serializer(text: str):
+    if text.isalnum():
+        res = ''
+        for letter in text:
+            if letter.isalpha():
+                res += letter
+        return res
+    return text
 
 
-content = "hello bu men"
-html = f"<h3>{content}</h3>"
-subject = "Bu DevMasters"
-to_address = 'khasanjon.dev@gmail.com'
-receiver_username = "Khasan"
-print("Sending mail...")
+#
+# res = keys_serializer('1a2b3c4d5a6b7b8d9a10b11c12b13b14a15b16b17c18b19a20b21a22b23c24b25b26b27a28c29a30b')
+# print(len(res))
+# from datetime import datetime
+#
+# import httpx
+#
+# url = "http://127.0.0.1:8000/api/science/"
+# context = {
+#     'name': 'test_name',
+#     'size': 20,
+#     'keys': 'test_keys',
+#     'author': 1
+# }
+# # http://127.0.0.1:8000/api/science/
+# response = httpx.post(url, data=context)
+# date = response.json()['created_at']
+# datetime_object = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%f%z")
+#
+# # Format the datetime object using strftime
+# formatted_time = datetime_object.strftime("%m/%d/%Y, %H:%M:%S")
+# print(formatted_time)
 
-# Send the email and store the response
-email_response = send_email(subject, html, to_address, receiver_username)
 
-# Print the status of the email sending process
-print(email_response)
+
+# def get_test_id(text: str) -> int:
+#     res = ''
+#     for w in text:
+#         if w.isnumeric():
+#             res += w
+#     return int(res)
+
+base_url = 'http://127.0.0.1:8000/api'
+
+
+def check_answer(keys: str):
+    tru_answers = 0
+    false_answers = 0
+    url = f'{base_url}/science/18/'
+    keys = keys_serializer(keys)
+    response = httpx.get(url)
+    keys_api = keys_serializer(response.json()['keys'])
+    for k1, k2 in zip(keys, keys_api):
+        if k1 == k2:
+            tru_answers += 1
+        else:
+            false_answers += 1
+    return tru_answers, false_answers
+
+
+print(check_answer('1a2b3c4d5a6b7b8d9a10b11c12b13b14a15b16b17c18b19a20b21a22b23c24b25b26b27a28c29b30a'))
