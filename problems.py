@@ -1,21 +1,9 @@
-def is_path_crossing(path: str) -> bool:
-    x, y = 0, 0
-    visited = {(0, 0)}
-    for move in path:
-        if move == 'N':
-            y += 1
-        elif move == 'S':
-            y -= 1
-        elif move == 'E':
-            x += 1
-        elif move == 'W':
-            x -= 1
-        if (x, y) in visited:
-            return True
-        visited.add((x, y))
-    return False
+def number_game(nums: list[int]) -> list[int]:
+    result = []
+    for _ in range(len(nums) // 2):
+        min_1, min_2 = nums.pop(nums.index(min(nums))), nums.pop(nums.index(min(nums)))
+        result.extend([min_2, min_1])
+    return result
 
 
-path = "NESWW"
-result = is_path_crossing(path)
-print(result)
+print(number_game([2, 5]))
