@@ -1,9 +1,18 @@
-def number_game(nums: list[int]) -> list[int]:
-    result = []
-    for _ in range(len(nums) // 2):
-        min_1, min_2 = nums.pop(nums.index(min(nums))), nums.pop(nums.index(min(nums)))
-        result.extend([min_2, min_1])
-    return result
+def first_uniq_char(s: str) -> int:
+    for i, w in enumerate(s):
+        if s.count(w) == 1:
+            return i
+    return -1
 
 
-print(number_game([2, 5]))
+print(first_uniq_char("loveleetcode"))
+
+
+def first_uniq_char(s: str) -> int:
+    for i in range(len(s)):
+        if s[i] not in s[i + 1:] and s[i] not in s[:i]:
+            return i
+    return -1
+
+
+print(first_uniq_char("loveleetcode"))
