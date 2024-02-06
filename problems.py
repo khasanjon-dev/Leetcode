@@ -1,18 +1,11 @@
-def first_uniq_char(s: str) -> int:
-    for i, w in enumerate(s):
-        if s.count(w) == 1:
-            return i
-    return -1
+def group_anagrams(strs: list[str]) -> list[list[str]]:
+    result = {}
+    for word in strs:
+        sorted_word = ''.join(sorted(word))
+        if sorted_word not in result:
+            result[sorted_word] = []
+        result[sorted_word].append(word)
+    return sorted(result.values(), key=lambda x: len(x))
 
 
-print(first_uniq_char("loveleetcode"))
-
-
-def first_uniq_char(s: str) -> int:
-    for i in range(len(s)):
-        if s[i] not in s[i + 1:] and s[i] not in s[:i]:
-            return i
-    return -1
-
-
-print(first_uniq_char("loveleetcode"))
+print(group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
