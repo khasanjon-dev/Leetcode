@@ -1,11 +1,9 @@
-def group_anagrams(strs: list[str]) -> list[list[str]]:
-    result = {}
-    for word in strs:
-        sorted_word = ''.join(sorted(word))
-        if sorted_word not in result:
-            result[sorted_word] = []
-        result[sorted_word].append(word)
-    return sorted(result.values(), key=lambda x: len(x))
+def frequency_sort(s: str) -> str:
+    s_count = {}
+    for w in s:
+        s_count[w] = s_count.get(w, 0) + 1
+    sort_s = sorted(s_count.keys(), key=lambda x: s_count[x], reverse=True)
+    return ''.join(w * s_count[w] for w in sort_s)
 
 
-print(group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+print(frequency_sort("loveleetcode"))
