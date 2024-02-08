@@ -1,9 +1,14 @@
-def frequency_sort(s: str) -> str:
-    s_count = {}
-    for w in s:
-        s_count[w] = s_count.get(w, 0) + 1
-    sort_s = sorted(s_count.keys(), key=lambda x: s_count[x], reverse=True)
-    return ''.join(w * s_count[w] for w in sort_s)
+def num_squares(n: int) -> int:
+    squares = [i ** 2 for i in range(1, int(n ** 0.5 + 1))]
+    dp = [1] * (n + 1)
+    dp[0] = 0
+    for i in range(1, n + 1):
+        dp[i] = dp[i - 1] + 1
+        for square in squares:
+            if i < square:
+                break
+            dp[i] = min(dp[i], dp[i - square] + 1)
+    return dp[-1]
 
 
-print(frequency_sort("loveleetcode"))
+print(num_squares(13))
