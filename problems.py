@@ -1,14 +1,11 @@
-def num_squares(n: int) -> int:
-    squares = [i ** 2 for i in range(1, int(n ** 0.5 + 1))]
-    dp = [1] * (n + 1)
-    dp[0] = 0
-    for i in range(1, n + 1):
-        dp[i] = dp[i - 1] + 1
-        for square in squares:
-            if i < square:
-                break
-            dp[i] = min(dp[i], dp[i - square] + 1)
-    return dp[-1]
+def find_champion(grid: list[list[int]]) -> int:
+    results = {}
+    for i, nums in enumerate(grid):
+        results[i] = sum(nums)
+    max_ = max(results.values())
+    for i, numbers in enumerate(grid):
+        if sum(numbers) == max_:
+            return i
 
 
-print(num_squares(13))
+print(find_champion([[0, 1], [0, 0]]))
