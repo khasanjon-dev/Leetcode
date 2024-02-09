@@ -1,11 +1,16 @@
-def find_champion(grid: list[list[int]]) -> int:
-    results = {}
-    for i, nums in enumerate(grid):
-        results[i] = sum(nums)
-    max_ = max(results.values())
-    for i, numbers in enumerate(grid):
-        if sum(numbers) == max_:
-            return i
+def largest_divisible_subset(nums):
+    if not nums:
+        return []
+    n = len(nums)
+    nums.sort()
+    dp = [[num] for num in nums]
+    for i in range(1, n):
+        for j in range(i):
+            if nums[i] % nums[j] == 0 and len(dp[i]) < len(dp[j]) + 1:
+                dp[i] = dp[j] + [nums[i]]
+
+    return max(dp, key=len)
 
 
-print(find_champion([[0, 1], [0, 0]]))
+nums = [1, 2, 3, 4, 6]
+print(largest_divisible_subset(nums))
