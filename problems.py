@@ -1,16 +1,13 @@
-def largest_divisible_subset(nums):
-    if not nums:
-        return []
-    n = len(nums)
-    nums.sort()
-    dp = [[num] for num in nums]
-    for i in range(1, n):
-        for j in range(i):
-            if nums[i] % nums[j] == 0 and len(dp[i]) < len(dp[j]) + 1:
-                dp[i] = dp[j] + [nums[i]]
+def count_substring(s: str) -> int:
+    count = 0
+    l = len(s)
+    for i in range(l):
+        for j in range(i + 1, l + 1):
+            word = s[i: j]
+            if word == word[::-1]:
+                count += 1
 
-    return max(dp, key=len)
+    return count
 
 
-nums = [1, 2, 3, 4, 6]
-print(largest_divisible_subset(nums))
+print(count_substring('aaaaa'))
