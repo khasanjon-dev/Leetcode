@@ -1,3 +1,4 @@
+# 1
 def kth_distinct(arr: list[str], k: int) -> str:
     res = []
     for i in range(len(arr)):
@@ -12,6 +13,7 @@ arr = ["aaa", "aa", "a"]
 print(kth_distinct(arr, 1))
 
 
+# 2
 def kth_distinct(arr: list[str], k: int) -> str:
     result = []
     for word in arr:
