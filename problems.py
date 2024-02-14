@@ -1,8 +1,16 @@
-def first_palindrome(words: list[str]) -> str:
-    for word in words:
-        if word == word[::-1]:
-            return word
-    return ''
+def rearrange_array(nums: list[int]) -> list[int]:
+    positives = []
+    minus = []
+    for num in nums:
+        if num >= 0:
+            positives.append(num)
+        else:
+            minus.append(num)
+    result = []
+    while positives or minus:
+        result.append(positives.pop(0))
+        result.append(minus.pop(0))
+    return result
 
 
-print(first_palindrome(["abc", "car", "ada", "racecar", "cool"]))
+print(rearrange_array([-1, 1]))
