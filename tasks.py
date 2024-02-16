@@ -25,4 +25,8 @@ keys = {
     '26': 'a'
 }
 mum, math, his = fun(keys)
-print(mum, math, his)
+general = mum
+general.update(math)
+general.update(his)
+result = ', '.join(general)
+print(result)
