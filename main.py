@@ -44,21 +44,3 @@ def keys_serializer(text: str):
 #     return int(res)
 
 base_url = 'http://127.0.0.1:8000/api'
-
-
-def check_answer(keys: str):
-    tru_answers = 0
-    false_answers = 0
-    url = f'{base_url}/science/18/'
-    keys = keys_serializer(keys)
-    response = httpx.get(url)
-    keys_api = keys_serializer(response.json()['keys'])
-    for k1, k2 in zip(keys, keys_api):
-        if k1 == k2:
-            tru_answers += 1
-        else:
-            false_answers += 1
-    return tru_answers, false_answers
-
-
-print(check_answer('1a2b3c4d5a6b7b8d9a10b11c12b13b14a15b16b17c18b19a20b21a22b23c24b25b26b27a28c29b30a'))
