@@ -1,10 +1,10 @@
 def max_repeating(sequence: str, word: str) -> int:
-    repeats = 0
+    result = 0
     words = word
     while words in sequence:
-        repeats += 1
+        result += 1
         words += word
-    return repeats
+    return result
 
 
 print(max_repeating('aaabaaaabaaabaaaabaaaabaaaabaaaaba', 'aaaba'))
