@@ -10,11 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Merge leetcode branch into master
-      run: |
-        git checkout master
-        git merge leetcode origin/master
-        git push origin master
+      - name: Merge leetcode branch into master
+        run: |
+          git merge leetcode origin/master
+          git push origin master
