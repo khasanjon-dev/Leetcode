@@ -10,10 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Merge leetcode branch into master
-        run: |
-          git checkout master
-          git merge leetcode
+    - name: Check if 'master' branch exists
+      run: |
+        if git rev-parse --verify --quiet master; then
+          echo "Branch 'master' exists"
+        else
+          echo "Branch 'master' does not exist"
+        fi
+
+    - name: Merge leetcode branch into master
+      run: |
+        git fetch origin
+        git checkout master
+        git merge --no-ff ${{ github.event.ref }} -m "Merge leetcode branch into master"
+        git push origin master
