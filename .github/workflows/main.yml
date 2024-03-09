@@ -1,20 +1,21 @@
-name: Merge Branches
+name: Merge branch into main
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types:
+      - closed
 
 jobs:
   merge:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Merge branches
-      run: |
-        git fetch origin ${{ github.head_ref }}
-        git checkout ${{ github.base_ref }}
-        git merge --no-ff ${{ github.head_ref }}
-        git push origin ${{ github.base_ref }}
+      - name: Merge branch
+        run: |
+          git fetch origin
+          git checkout master
+          git merge --no-ff ${{ github.event.pull_request.head.ref }} -m "Merge branch '${{ github.event.pull_request.head.ref }}' into master"
+          git push origin master
