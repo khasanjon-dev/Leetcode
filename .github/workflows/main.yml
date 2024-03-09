@@ -1,1 +1,20 @@
+name: Merge Branches
 
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Merge branches
+      run: |
+        git fetch origin ${{ github.head_ref }}
+        git checkout ${{ github.base_ref }}
+        git merge --no-ff ${{ github.head_ref }}
+        git push origin ${{ github.base_ref }}
