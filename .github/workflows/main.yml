@@ -1,21 +1,21 @@
-name: Merge branch into main
+name: Merge leetcode branch into main
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
+    branches:
+      - leetcode
 
 jobs:
   merge:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Merge branch
-        run: |
-          git fetch origin
-          git checkout master
-          git merge --no-ff ${{ github.event.pull_request.head.ref }} -m "Merge branch '${{ github.event.pull_request.head.ref }}' into master"
-          git push origin master
+    - name: Merge leetcode branch into master
+      run: |
+        git fetch origin
+        git checkout master
+        git merge --no-ff ${{ github.event.ref }} -m "Merge leetcode branch into master"
+        git push origin master
