@@ -23,7 +23,7 @@ jobs:
 
     - name: Merge leetcode branch into master
       run: |
-        git fetch origin
+#        git fetch origin
         git checkout master
         git merge --no-ff ${{ github.event.ref }} -m "Merge leetcode branch into master"
         git push origin master
