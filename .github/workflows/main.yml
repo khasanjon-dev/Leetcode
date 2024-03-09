@@ -15,7 +15,6 @@ jobs:
 
     - name: Merge leetcode branch into master
       run: |
-        git fetch origin
         git checkout master
         git merge leetcode origin/master
         git push origin master
