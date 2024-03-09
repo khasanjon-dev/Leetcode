@@ -15,5 +15,5 @@ jobs:
 
       - name: Merge leetcode branch into master
         run: |
-          git merge leetcode origin/master
-          git push origin master
+          git merge leetcode master
+          git push master
