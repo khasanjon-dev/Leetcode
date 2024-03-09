@@ -11,9 +11,11 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Merge leetcode branch into master
       run: |
-          git merge leetcode master
-          git push master
+        git fetch origin
+        git checkout master
+        git merge --no-ff ${{ github.event.ref }} -m "Merge leetcode branch into master"
+        git push origin master
