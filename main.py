@@ -1,10 +1,14 @@
-input_file_path = "pyproject.toml"
-output_file_path = "requirements.txt"
+from locust import HttpUser, task
 
-with open(input_file_path, 'r') as input_file:
-    with open(output_file_path, 'w') as output_file:
-        for line in input_file:
-            if '^' in line:
-                library, version = map(str.strip, line.split('='))
-                version = version.replace('^', '').replace('"', '')
-                output_file.write(f'{library}=={version}\n')
+
+class HelloWorldUser(HttpUser):
+
+    @task
+    def hello_world(self):
+        url = 'http://127.0.0.1/api/v1/news/balance/'
+        response = self.client.get(url)
+        print(response.json())
+"""
+locust command
+locust -f main.py --host http://0.0.0.0:8090
+"""
