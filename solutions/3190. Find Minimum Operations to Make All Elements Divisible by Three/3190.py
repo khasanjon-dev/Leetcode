@@ -1,5 +1,5 @@
 def minimum_operations(nums: list[int]) -> int:
-    operations = sum(0 if num % 3 == 0 else 1 for num in nums)
+    operations = sum(1 for num in nums if num % 3)
     return operations
 
 
