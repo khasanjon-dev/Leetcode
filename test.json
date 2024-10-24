@@ -1,0 +1,37 @@
+{
+  "success": true,
+  "msg": "Xatoliklarsiz qabul qilindi",
+  "title": "Usta-shogird, hunarmandchilik asosida subsidiya olganlar ma'lumotlari!",
+  "data": [
+    {
+      "region_name": "Самарқанд вилояти",
+      "region_soato": 1718,
+      "district_name": "Самарқанд шаҳар",
+      "city_soato": 1718401,
+      "bdate": "2002-06-05",
+      "psdata": "AC0984837",
+      "inn": "620461358",
+      "pinfl": "60506026180035",
+      "sex": 2,
+      "full_name": "MUXAMMADIYEVA MAFTUNA AMIN QIZI",
+      "subsidy_amount": "1145760",
+      "subsidy_date": "2024-05-29",
+      "subsidy_name": "Усталарга — интернет сайтларини яратиш, реклама учун"
+    }
+  ],
+  "description": {
+    "region_name": "Hudud (viloyat) nomi",
+    "region_soato": "Hudud (viloyat) SOATO kodi",
+    "district_name": "Tuman (shahar) nomi",
+    "city_soato": "Tuman (shahar) SOATO kodi",
+    "bdate": "Tug'ilgan sanasi",
+    "inn": "INN",
+    "pinfl": "JShShIR",
+    "sex": "Jinsi (1-erkak 2-ayol)",
+    "full_name": "F.I.O",
+    "psdata": "Passport raqami",
+    "subsidy_name": "Subsidiya turi",
+    "subsidy_date": "Subsidiya ajratilgan sana",
+    "subsidy_amount": "Ajratilgan summa miqdori"
+  }
+}
