@@ -1,12 +1,27 @@
 {
-  "msg": "OK",
-  "status": 200,
-  "title": "12. Xorijiy vakolatli organlarda mahalliy mahsulotlar va brendlarni (tovar belgilarini) ro‘yxatdan o‘tkazish yo‘nalishi ajratiladigan subsidiyalar to‘g‘risida ma’lumotlar.",
-  "data": [],
-  "meta": {
-    "current_page": 1,
-    "per_page": 30,
-    "last_page": 1,
-    "total": 0
-  }
+  "ns10Code": 3,
+  "ns11Code": 1,
+  "pinfl": null,
+  "cadastralNumber": "0",
+  "na2Code": 67,
+  "year": 2023,
+  "dateOper": "31.12.2023",
+  "nameOper": "Сальдо на31.12.2023г.",
+  "dateSrok": "2023-12-31 00:00:00",
+  "nachislenN": 0,
+  "umenshenN": 0,
+  "uplochN": 0,
+  "vozvrat": 0,
+  "saldoTekN": 0,
+  "pereplata": 0,
+  "nachislenP": 0,
+  "umenshenP": 0,
+  "uplochP": 0,
+  "saldoTekP": 0,
+  "periodP": "01.01.2023 - 31.12.2023",
+  "shtraf": 0,
+  "xar": 99,
+  "ns51Code": 1,
+  "ownNs10Code": 3,
+  "ownNs11Code": 1
 }
