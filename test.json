@@ -1,27 +1,18 @@
 {
-  "ns10Code": 3,
-  "ns11Code": 1,
-  "pinfl": null,
-  "cadastralNumber": "0",
-  "na2Code": 67,
-  "year": 2023,
-  "dateOper": "31.12.2023",
-  "nameOper": "Сальдо на31.12.2023г.",
-  "dateSrok": "2023-12-31 00:00:00",
-  "nachislenN": 0,
-  "umenshenN": 0,
-  "uplochN": 0,
-  "vozvrat": 0,
-  "saldoTekN": 0,
-  "pereplata": 0,
-  "nachislenP": 0,
-  "umenshenP": 0,
-  "uplochP": 0,
-  "saldoTekP": 0,
-  "periodP": "01.01.2023 - 31.12.2023",
-  "shtraf": 0,
-  "xar": 99,
-  "ns51Code": 1,
-  "ownNs10Code": 3,
-  "ownNs11Code": 1
+  "requestedDate": "2024-10-01",
+  "valuesCount": 1,
+  "pointCode": "0827212002401000",
+  "pointId": 77,
+  "deviceSerialNumber": "30067407",
+  "deviceType": "FloBoss-107",
+  "values": [
+    {
+      "timestamp": "2024-10-01 00:00:00",
+      "differentialPressure": 33338.336945,
+      "pressure": 354816.162109,
+      "temperature": 16.36434,
+      "volume": 59841.747284,
+      "accountingTime": 24
+    }
+  ]
 }

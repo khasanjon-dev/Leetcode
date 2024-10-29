@@ -1,0 +1,38 @@
+{
+  "check": {
+    "success": {
+      "status_code": 200,
+      "response_type": "json",
+      "field": "success",
+      "value": "success"
+    },
+    "errors": {
+      "400": "error",
+      "response_type": "json"
+    }
+  },
+  "data": {
+    "field": "data",
+    "type": "list"
+  },
+  "columns": {
+    "id": "id",
+    "registration_date": "registration_date",
+    "tin": "tin",
+    "pinfl": "pinfl",
+    "fio": "fio",
+    "a_region_soato": "a_region_soato",
+    "a_sub_region_soatoio": "a_sub_region_soatoio",
+    "a_village_soato": "a_village_soato",
+    "home_region_soato": "home_region_soato",
+    "home_sub_region_soato": "home_sub_region_soato",
+    "mahalla": "mahalla",
+    "home_street": "home_street",
+    "activity_type": "activity_type",
+    "expiry_date": "expiry_date",
+    "birthday": "birthday",
+    "nationality": "nationality",
+    "phones": "phones",
+    "passport_serial": "passport_serial"
+  }
+}
