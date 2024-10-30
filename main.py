@@ -1,28 +1,33 @@
-import base64
+import re
 
 
-def generate_qr_code(merchant_id, device_id):
-    base_url = f"https://beepul.uz/actions/payment?qr=2&"
+class TextProcessor:
+    def __init__(self, text):
+        self.text = text
 
-    url = f"m={merchant_id}&cr=860&ac.qurilma_id={device_id}&ac.merchant_id={merchant_id}"
-    url_bytes = url.encode('utf-8')
-    base64_encoded_url = base64.b64encode(url_bytes).decode('utf-8')
+    def extract_emails(self):
+        def extract_email(text):
+            pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(ru|com|org|net)'
+            match = re.search(pattern, text)
+            if match:
+                return match.group(0)
+            return None
 
-    return base_url + base64_encoded_url
+        emails = []
+        for t in self.text.split():
+            email = extract_email(t)
+            if email:
+                emails.append(email)
 
-
-qr = generate_qr_code(4092, "Sound Box")
-
-
-def decode(base64_encoded_url):
-    # Decode the base64 string
-    decoded_bytes = base64.b64decode(base64_encoded_url)
-
-    # Convert the bytes back into a string
-    decoded_url = decoded_bytes.decode('utf-8')
-
-    print(decoded_url)
+        emails = set(emails)
+        return sorted(emails)
 
 
-decode("bT1Tb3VuZCBCb3gmY3I9ODYwJmFjLnF1cmlsbWFfaWQ9U291bmQgQm94JmFjLm1lcmNoYW50X2lkPTQwOTI=")
-"https://beepul.uz/actions/payment?qr=2&bT1Tb3VuZCBCb3gmY3I9ODYwJmFjLnF1cmlsbWFfaWQ9U291bmQgQm94JmFjLm1lcmNoYW50X2lkPTQwOTI="
+input_text = input()
+processor = TextProcessor(input_text)
+
+found_emails = processor.extract_emails()
+if found_emails:
+    print("\n".join(found_emails))
+else:
+    print("Не найдено")

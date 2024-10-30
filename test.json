@@ -1,18 +1,11 @@
 {
-  "requestedDate": "2024-10-01",
-  "valuesCount": 1,
-  "pointCode": "0827212002401000",
-  "pointId": 77,
-  "deviceSerialNumber": "30067407",
-  "deviceType": "FloBoss-107",
-  "values": [
-    {
-      "timestamp": "2024-10-01 00:00:00",
-      "differentialPressure": 33338.336945,
-      "pressure": 354816.162109,
-      "temperature": 16.36434,
-      "volume": 59841.747284,
-      "accountingTime": 24
-    }
+  "response_id": 500608718,
+  "code": 1,
+  "message": "So'rov muvaffaqiyatli bajarildi",
+  "pinfl": "31307760560028",
+  "inn": null,
+  "cadastr_count": 1,
+  "cadastr_list": [
+    "10:09:04:02:03:5009:0001:002"
   ]
 }
