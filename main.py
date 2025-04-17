@@ -1,34 +1,35 @@
-import re
+import random
 
-def get_column_name_and_type(ddl):
-    # Regular expression to match column name and type
-    column_pattern = re.compile(r'(\w+)\s+([\w\(\)]+(?: PRIMARY KEY)?)')
+import psycopg2
 
-    # Extract the part of DDL inside the parentheses
-    columns_section = re.search(r'\((.*)\);', ddl, re.DOTALL).group(1)
+conn = psycopg2.connect(
+    dbname="postgres",
+    user="postgres",
+    password="1",
+    host="localhost",
+    port="5445",
+)
+conn.autocommit = True
+cursor = conn.cursor()
 
-    # Find all matches in the columns section
-    columns = column_pattern.findall(columns_section)
+try:
+    random_ids = random.sample(range(1, 10_000_001), 1000)
 
-    # Create a dictionary with column names as keys and types as values
-    column_dict = {column[0]: column[1].split('(')[0] for column in columns}
+    for idx, user_id in enumerate(random_ids, start=1):
+        print(f"\n👤 [{idx}/1000] user_id = {user_id}")
 
-    return column_dict
+        for i in range(1, 101):
+            suffix = f"_upd{i}"
+            query = """
+                UPDATE billing.users
+                SET name = name || %s
+                WHERE id = %s;
+            """
+            cursor.execute(query, (suffix, user_id))
+            print(f"  → Update {i}/100 done")
 
-# Example DDL statement
-ddl_statement = """
-CREATE TABLE employees (
-    id SERIAL PRIMARY KEY,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    email VARCHAR(100),
-    hire_date DATE,
-    salary NUMERIC(10, 2)
-);
-"""
+    print("\n✅ 1000 ta userga 100 martalik real update yakunlandi!")
 
-# Get column names and types as a dictionary
-d = get_column_name_and_type(ddl_statement)
-
-# Print the result
-print(d)
+finally:
+    cursor.close()
+    conn.close()
