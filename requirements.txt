@@ -1,6 +1,0 @@
-black==25.1.0
-requests==2.32.3
-python-dotenv==1.0.1
-psycopg2-binary==2.9.10
-clickhouse-connect==0.8.15
-confluent-kafka==2.8.0
