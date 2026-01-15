@@ -1,10 +1,11 @@
+from math import gcd
+
+
 def gc_of_strings(str1: str, str2: str) -> str:
-    for i in range(len(str2), 0, -1):
-        str1_list = str1.split(str2[:i])
-        str2_list = str2.split(str2[:i])
-        if set(str1_list) == {""} and set(str2_list) == {""}:
-            return str2[:i]
-    return ""
+    if str1 + str2 != str2 + str1:
+        return ""
+    i = gcd(len(str1), len(str2))
+    return str1[:i]
 
 
 print(gc_of_strings("ABABAB", "ABAB"))
