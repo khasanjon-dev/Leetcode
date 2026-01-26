@@ -15,7 +15,6 @@ def count_days_together(
     else:
         print("bad")
 
-
 print(
     count_days_together(
         arriveAlice="01-01", leaveAlice="12-31", arriveBob="03-02", leaveBob="09-07"
