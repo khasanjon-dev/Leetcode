@@ -1,11 +1,12 @@
 def reorder_space(text: str) -> str:
     spaces = text.count(" ")
     words = text.split()
+    words_len = len(words)
 
-    if len(words) == 1:
+    if words_len == 1:
         return words[0] + " " * spaces
 
-    gap, extra = divmod(spaces, len(words) - 1)
+    gap, extra = divmod(spaces, words_len - 1)
     return (" " * gap).join(words) + " " * extra
 
 
