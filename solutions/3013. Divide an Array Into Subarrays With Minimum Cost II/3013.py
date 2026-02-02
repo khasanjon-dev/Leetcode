@@ -5,6 +5,9 @@ def minimum_cost(nums: list[int], k: int, dist: int) -> int:
         i = nums.index(min_num)
 
 
+    # write more logic here
+
+
     return result
 
 
