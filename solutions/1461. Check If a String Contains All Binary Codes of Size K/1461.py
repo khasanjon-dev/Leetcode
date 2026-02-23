@@ -10,4 +10,4 @@ def has_all_codes(s: str, k: int) -> bool:
     return len(seen) == 2**k
 
 
-print(has_all_codes("0110", 1))
+print(has_all_codes("0110", 2))
