@@ -1,18 +1,29 @@
 def find_judge(n: int, trust: list[list[int]]) -> int:
-    if n == 1:
-        return 1
-
-    trust_score = [0] * (n + 1)
-
+    result = {}
     for a, b in trust:
-        trust_score[a] -= 1
-        trust_score[b] += 1
-
-    for i in range(1, n + 1):
-        if trust_score[i] == n - 1:
-            return i
-
+        if a in result:
+            result[a].append(b)
+        else:
+            result[a] = [b]
+    values = sorted(result.values())
+    if len(result) != n - 1:
+        return -1
+    elif n == 1 and not trust:
+        return 1
+    for nums in values:
+        for num in nums:
+            if all(num in value for value in values):
+                return num
     return -1
 
 
-print(find_judge(3, [[1, 3], [2, 3]]))
+print(find_judge(1, []))
+"""
+1-> 3,4
+2-> 3,4
+4-> 3
+
+
+1: [3, 4]
+
+"""
