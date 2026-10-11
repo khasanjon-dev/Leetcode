@@ -7,4 +7,4 @@ def contains_nearby_duplicate(nums: list[int], k: int) -> bool:
     return False
 
 
-print(contains_nearby_duplicate(nums=[1, 2, 3, 1], k=3))
+print(contains_nearby_duplicate(nums=[1, 2, 1, 1], k=1))
