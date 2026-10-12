@@ -1,16 +1,25 @@
+import heapq
+
+
 class KthLargest:
 
     def __init__(self, k: int, nums: list[int]):
         self.k = k
-        self.nums = nums
+        self.heap = []
+        for num in nums:
+            self.add(num)
 
     def add(self, val: int) -> int:
-        self.nums.append(val)
-        self.nums.sort()
-        return self.nums[-self.k]
+        if len(self.heap) < self.k:
+            heapq.heappush(self.heap, val)
+        elif val > self.heap[0]:
+            heapq.heapreplace(self.heap, val)
+
+        return self.heap[0]
 
 
-obj = KthLargest(3, [4, 5, 8, 2])
-param_1 = obj.add(3)
-param_2 = obj.add(5)
-print(param_2)
+params = [2, 1, -1, 3, 4]
+obj = KthLargest(3, [5, -1])
+for param in params:
+    res = obj.add(param)
+    print(res)
