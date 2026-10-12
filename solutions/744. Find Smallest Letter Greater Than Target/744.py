@@ -1,8 +1,14 @@
 def next_greatest_letter(letters: list[str], target: str) -> str:
-    for letter in letters:
-        if letter > target:
-            return letter
-    return letters[0]
+    left, right = 0, len(letters) - 1
+    answer = 0
+    while left <= right:
+        mid = (right + left) // 2
+        if letters[mid] <= target:
+            left = mid + 1
+        elif letters[mid] >= target:
+            answer = mid
+            right = mid - 1
+    return letters[answer]
 
 
-print(next_greatest_letter(letters=["x", "x", "y", "y"], target="z"))
+print(next_greatest_letter(letters=["c", "f", "j"], target="c"))
