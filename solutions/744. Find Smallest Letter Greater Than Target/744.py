@@ -5,7 +5,7 @@ def next_greatest_letter(letters: list[str], target: str) -> str:
         mid = (right + left) // 2
         if letters[mid] <= target:
             left = mid + 1
-        elif letters[mid] >= target:
+        elif letters[mid] > target:
             answer = mid
             right = mid - 1
     return letters[answer]
