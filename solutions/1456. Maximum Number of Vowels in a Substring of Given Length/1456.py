@@ -1,20 +1,19 @@
 def max_vowels(s: str, k: int) -> int:
-    def count_vowels(word: str) -> int:
-        vowels = 0
+    vowels = set("aeiou")
 
-        for char in word:
+    window_count = sum(char in vowels for char in s[:k])
+    max_count = window_count
 
-            if char in 'aeiou':
-                vowels += 1
+    for i in range(k, len(s)):
+        window_count += s[i] in vowels
+        window_count -= s[i - k] in vowels
 
-        return vowels
+        max_count = max(max_count, window_count)
 
-    max_vowels = 0
+        if max_count == k:
+            return k
 
-    for i in range(0, len(s) - k + 1):
-        max_vowels = max(max_vowels, count_vowels(s[i: i + k]))
-
-    return max_vowels
+    return max_count
 
 
 print(max_vowels(s="abciiidef", k=3))
