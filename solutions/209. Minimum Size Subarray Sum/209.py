@@ -4,7 +4,7 @@ def min_sub_array_len(target: int, nums: list[int]) -> int:
     len_nums = len(nums)
     min_len = len_nums + 1
 
-    for right in range(len(nums)):
+    for right in range(len_nums):
         window_sum += nums[right]
 
         while window_sum >= target:
